@@ -7,8 +7,8 @@ import ItemListContainer from './components/ItemListContainer';
 function App() {
   return (
     <>
-      <NavBar />
-      <ItemListContainer greeting = {'Soy ItemListContainer'} />
+      <NavBar catalogo = {["Botines", "Camisetas", "Pantalones", "Zapatillas"]}/>
+      <ItemListContainer catalogo = {["Botines", "Camisetas", "Pantalones", "Zapatillas"]} />
     </>
   );
 }

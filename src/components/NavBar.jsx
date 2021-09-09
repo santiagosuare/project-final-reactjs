@@ -8,7 +8,7 @@ import Button  from "react-bootstrap/Button";
 
 
 
-const NavBar = () => {
+const NavBar = (props) => {
     
     return (
     <>
@@ -23,9 +23,11 @@ const NavBar = () => {
                 >
                 <Nav.Link href="#action1">Inicio</Nav.Link>
                 <Nav.Link href="#action2">Nosotros</Nav.Link>
-                <NavDropdown title="Link" id="navbarScrollingDropdown">
-                    <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+                <NavDropdown title="Catalogo" id="navbarScrollingDropdown">
+                    <NavDropdown.Item href="#action3">{props.catalogo[0]}</NavDropdown.Item>
+                    <NavDropdown.Item href="#action4">{props.catalogo[1]}</NavDropdown.Item>
+                    <NavDropdown.Item href="#action4">{props.catalogo[2]}</NavDropdown.Item>
+                    <NavDropdown.Item href="#action4">{props.catalogo[3]}</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
                 </NavDropdown>
