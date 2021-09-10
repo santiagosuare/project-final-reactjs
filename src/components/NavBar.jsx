@@ -5,10 +5,15 @@ import NavDropdown  from "react-bootstrap/NavDropdown";
 import Form  from "react-bootstrap/Form";
 import FormControl  from "react-bootstrap/FormControl";
 import Button  from "react-bootstrap/Button";
+import ItemCount from "./ItemCount";
 
 
 
 const NavBar = (props) => {
+
+    const onAdd = (cant) => {
+        console.log(cant)
+    }
     
     return (
     <>
@@ -46,7 +51,9 @@ const NavBar = (props) => {
                 </Form>
             </Navbar.Collapse>
             <CartWidget />
+            
             </Navbar>
+            <ItemCount stock={12} initial={1} onAdd={onAdd}/>
            
         
             
