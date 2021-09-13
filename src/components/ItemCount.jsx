@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {useState} from 'react'
 
@@ -7,7 +6,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
     const [count, setCount] = useState(initial)
 
     const handlerAdd =()=>{
-        setCount(count +1)        
+        if (count <= (stock -1)) setCount(count +1)        
     }
 
     const handlerRm =()=>{
@@ -28,9 +27,9 @@ const ItemCount = ({stock, initial, onAdd}) => {
                 <Card.Text>
                 Una remera
                 </Card.Text>
-                <button className="btn btn-primary" onClick={handlerAdd}>+</button>
+                <button className="btn btn-primary" onClick={handlerRm}>-</button>
                 <label>{count}</label>
-                <button className="btn btn-primary" onClick={handlerRm}>-</button><br />
+                <button className="btn btn-primary" onClick={handlerAdd}>+</button><br />
                 <button className="btn btn-outline-primary btn-block" onClick={handlerOnAdd}>Agregar</button>
             </Card.Body>
             </Card>

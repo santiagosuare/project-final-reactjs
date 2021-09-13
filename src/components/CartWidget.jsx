@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 const CartWidget = () => {
     return (
         <>
-            <a>     
+            <a href="#section">     
                 
                 <Button className="mb-1" variant="primary" size="lg" ><AiOutlineShoppingCart /></Button>{}
                 

@@ -1,7 +1,13 @@
-import NavDropdown  from "react-bootstrap/NavDropdown";
 import Dropdown from "react-bootstrap/Dropdown";
+import ItemCount from "./ItemCount";
 
 export const ItemListContainer = (props) => {
+
+    const onAdd = (cant) => {
+        console.log(cant)
+    }
+
+    
     return (
         <div>
             <Dropdown>
@@ -15,6 +21,7 @@ export const ItemListContainer = (props) => {
                 <Dropdown.Item href="#/action-3">{props.catalogo[2]}</Dropdown.Item>
             </Dropdown.Menu>
             </Dropdown>
+            <ItemCount stock={12} initial={1} onAdd={onAdd}/>
         </div>
     )
 }
