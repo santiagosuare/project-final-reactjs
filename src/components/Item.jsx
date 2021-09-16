@@ -1,16 +1,25 @@
 import React from 'react'
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button"
+import ItemCount from './ItemCount';
 
 const Item = ({item}) => {
+    const onAdd = (cant) => {
+        console.log(cant)
+    }
+
     return (
-        <div key={item.id} className="card w-50 mt-3">
-                                    <div className="card-header">{item.title}</div>
-                                    <div className="card-body">
-                                        <img src={item.pictureURL} width="300" height="300" alt="pic"/>
-                                    </div>
-                                    <div className="card-footer">
-                                        <button className="btn btn-outline-primary btn-block">Detalle</button>
-                                    </div>
-                              </div>
+        <div>
+            <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={item.pictureURL} />
+            <Card.Body>
+                <Card.Title>{item.title}</Card.Title>
+                <Button variant="primary">Detalle</Button>
+            </Card.Body>
+            <ItemCount stock={12} initial={1} onAdd={onAdd}/>
+            </Card>
+            <br />
+        </div>
     )
 }
 

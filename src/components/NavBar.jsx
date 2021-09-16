@@ -16,7 +16,7 @@ const NavBar = (props) => {
     return (
     <>
             <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#">Shop Barber</Navbar.Brand>
+            <Navbar.Brand href="#">Clothes Shop</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
                 <Nav

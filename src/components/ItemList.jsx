@@ -2,12 +2,20 @@ import React from 'react'
 import Item from './Item'
 
 const ItemList = ({items}) => {
-    console.log(items)
+    
     return (
         <>
-            {items.map(item=> <Item item={item} />
-            
-            )}
+        <div className = "container d-flex justify-content-center aling-items-center h-180">
+            <div className = "row">
+                {items.map(item=> 
+                                (
+                                <div className = "col-md-3" key={item.id}>
+                                    <Item item={item} />
+                                </div>
+                                )
+                            )}
+            </div>
+        </div>
         </>
     )
 }
