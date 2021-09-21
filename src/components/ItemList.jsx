@@ -9,7 +9,7 @@ const ItemList = ({items}) => {
             <div className = "row">
                 {items.map(item=> 
                                 (
-                                <div className = "col-md-3" key={item.id}>
+                                <div className = "col-md-2" key={item.id}>
                                     <Item item={item} />
                                 </div>
                                 )
