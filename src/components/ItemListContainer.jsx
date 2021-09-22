@@ -1,10 +1,12 @@
-import Dropdown from "react-bootstrap/Dropdown";
+// import Dropdown from "react-bootstrap/Dropdown";
+// import { Link } from "react-router-dom";
+import { useParams } from "react-router";
 
 import { useState, useEffect } from "react";
 import { getItem } from "../Utils/Mock"
 
 import ItemList from "./ItemList";
-import ItemCount from "./ItemCount";
+// import ItemCount from "./ItemCount";
 
 export const ItemListContainer = (props) => {
 
@@ -12,39 +14,60 @@ export const ItemListContainer = (props) => {
 
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
+    const {idCategoria} = useParams()
 
-    const onAdd = (cant) => {
-        console.log(cant)
-    }
+    // const onAdd = (cant) => {
+    //     console.log(cant)
+    // }
 
     useEffect(() =>{
-        getItem
-        .then(respuesta =>{
-            setItems(respuesta)
-        })
-        .catch(error => console.log(error))
-        .finally(()=>setLoading(false))
 
-    }, [])
+        if (idCategoria) {
+            getItem
+            .then(respuesta =>{
+                setItems(respuesta.filter( prod => prod.categoria === idCategoria))
+            })
+            .catch(error => console.log(error))
+            .finally(()=>setLoading(false))
+            
+        } else {
+            getItem
+            .then(respuesta =>{
+                setItems(respuesta)
+            })
+            .catch(error => console.log(error))
+            .finally(()=>setLoading(false))
+        }
+    }, [idCategoria])
 
-
-    
     return (
         <div>
-            <Dropdown>
+            {/* <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Catalogo
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">{props.catalogo[0]}</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">{props.catalogo[1]}</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">{props.catalogo[2]}</Dropdown.Item>
+                <Link exact to="/categoria/Botines">
+                    {props.catalogo[0]}
+                </Link>
+                <br />
+                <Link exact to="/categoria/Camisetas">
+                    {props.catalogo[1]}
+                </Link>
+                <br />
+                <Link exact to="/categoria/Remeras">
+                    {props.catalogo[2]}
+                </Link>
+                <br />
+                <Link exact to="/categoria/Zapatillas">
+                    {props.catalogo[3]}
+                </Link>
             </Dropdown.Menu>
-            </Dropdown>
+            </Dropdown> */}
             { loading ? <h2>Cargando....</h2> : <ItemList items={items}/>}
             
-            <ItemCount stock={12} initial={1} onAdd={onAdd}/>
+            {/* <ItemCount stock={12} initial={1} onAdd={onAdd}/> */}
         </div>
     )
 }
