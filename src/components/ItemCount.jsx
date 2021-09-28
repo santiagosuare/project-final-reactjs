@@ -13,7 +13,7 @@ import {useState} from 'react'
 
 
 const ItemCount = ({stock, initial, onAdd}) => {
-    const [inputType, setInputType] = useState(true)
+    
     const [count, setCount] = useState(initial)
 
     const handlerAdd =()=>{
@@ -27,7 +27,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
     const handlerOnAdd=()=>{
         onAdd(count)
         setCount(initial)
-        setInputType(false)
+        
     }
 
   
@@ -37,12 +37,8 @@ const ItemCount = ({stock, initial, onAdd}) => {
                 <button className="btn btn-primary" onClick={handlerRm}>-</button>
                 <label>{count}</label>
                 <button className="btn btn-primary" onClick={handlerAdd}>+</button><br />
-
-                {inputType ? 
                 <button className="btn btn-outline-primary btn-block" onClick={handlerOnAdd}>Agregar al Carrito</button>
-                : 
-                <button className="btn btn-outline-primary btn-block"onClick={()=> console.log('/cart')}>Terminar Compra</button>
-                }
+                
         </div>           
     )
 }

@@ -5,28 +5,32 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import CartContextProvider from './context/cartContext';
 
 function App() {
 
+  
   return (
-    <BrowserRouter>
-      <div className = "App">
+    <CartContextProvider> 
+      <BrowserRouter>
+        <div className = "App">
 
-        <NavBar catalogo = {["Botines", "Camisetas", "Remeras", "Zapatillas"]}/>
-        <Switch> 
-          <Route path="/" exact>
-            <ItemListContainer catalogo = {["Botines", "Camisetas", "Remeras", "Zapatillas"]} />
-          </Route>
-          <Route path="/categoria/:idCategoria" exact>
-            <ItemListContainer catalogo = {["Botines", "Camisetas", "Remeras", "Zapatillas"]} />
-          </Route>
-          <Route path="/detalle/:id" exact>
-            <ItemDetailContainer/>
-          </Route>
-        </Switch>
+          <NavBar catalogo = {["Botines", "Camisetas", "Remeras", "Zapatillas"]}/>
+          <Switch> 
+            <Route path="/" exact>
+              <ItemListContainer catalogo = {["Botines", "Camisetas", "Remeras", "Zapatillas"]} />
+            </Route>
+            <Route path="/categoria/:idCategoria" exact>
+              <ItemListContainer catalogo = {["Botines", "Camisetas", "Remeras", "Zapatillas"]} />
+            </Route>
+            <Route path="/detalle/:id" exact>
+              <ItemDetailContainer/>
+            </Route>
+          </Switch>
 
-      </div>
-    </BrowserRouter>
+        </div>
+      </BrowserRouter>
+    </CartContextProvider>   
   );
 }
 

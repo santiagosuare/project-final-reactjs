@@ -17,7 +17,7 @@ const NavBar = (props) => {
     return (
     <>
             <Navbar bg="light" expand="lg">
-            <Link exact to="/">
+            <Link to="/">
                 <Navbar.Brand >Clothes Shop</Navbar.Brand>
             </Link>
             <Navbar.Toggle aria-controls="navbarScroll" />
@@ -56,7 +56,7 @@ const NavBar = (props) => {
                 <Button variant="outline-success">Search</Button>
                 </Form> */}
             </Navbar.Collapse>
-            <Link to="/" exact> 
+            <Link to="/"> 
                 <CartWidget />
             </Link>
             </Navbar>
