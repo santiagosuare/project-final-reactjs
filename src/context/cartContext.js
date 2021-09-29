@@ -12,7 +12,7 @@ export default function CartContextProvider({children}) {
         let previousCart = [...cartList]
 
         if (previousCart.some(i => i.item.id === data.item.id)) {
-            previousCart.find(i => i.item.id === data.item.id).quantity += data.quantity
+            previousCart.find(i => i.item.id === data.item.id).cantidad += data.cantidad
             setCarList(previousCart)
         } else {
             setCarList([...cartList, data])
@@ -21,19 +21,19 @@ export default function CartContextProvider({children}) {
 
     
     function removeToCart(){
-        setCarList([])
+        cartList([])
     }
 
-    console.log(cartList);
+    
     return(
      
-        <cartContextProvider value={{
+        <cartContext.Provider value={{
             cartList,
             addToCart,
             removeToCart
         }}>
             {children}
-        </cartContextProvider>
+        </cartContext.Provider>
 
     )
     

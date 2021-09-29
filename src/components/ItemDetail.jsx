@@ -8,17 +8,17 @@ const ItemDetail = ({item}) => {
     const [inputType, setInputType] = useState(true)
     const [cantidadSeleccionada, setCantidadSeleccionada] = useState(0)
 
-    const {addToCart} = useCartContext()
+    const { addToCart } = useCartContext()
 
     const onAdd = (cant) => {
     
-        // setCantidadSeleccionada(cant)
-        
+        setCantidadSeleccionada(cant)
         setInputType(false)
-        addToCart({item: item, cantidad: cant})
+        addToCart({item, cant})
     }
 
    console.log(addToCart)
+   console.log(setCantidadSeleccionada)
 
     return (
         <>
