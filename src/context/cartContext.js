@@ -6,19 +6,29 @@ const cartContext = createContext([]);
 export const useCartContext = () => useContext(cartContext)
 
 export default function CartContextProvider({children}) {
-    const [carList, setCarList] = useState([])
+    const [cartList, setCarList] = useState([])
 
-    function addToCart(item) {
-        setCarList([...carList, item])
+    const addToCart = (data) => {
+        let previousCart = [...cartList]
+
+        if (previousCart.some(i => i.item.id === data.item.id)) {
+            previousCart.find(i => i.item.id === data.item.id).quantity += data.quantity
+            setCarList(previousCart)
+        } else {
+            setCarList([...cartList, data])
+        }
     }
+
     
-    function removeToCart(item){
+    function removeToCart(){
         setCarList([])
     }
 
+    console.log(cartList);
     return(
+     
         <cartContextProvider value={{
-            carList,
+            cartList,
             addToCart,
             removeToCart
         }}>
