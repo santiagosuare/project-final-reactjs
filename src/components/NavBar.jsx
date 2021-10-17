@@ -6,14 +6,16 @@ import NavDropdown  from "react-bootstrap/NavDropdown";
 // import FormControl  from "react-bootstrap/FormControl";
 // import Button  from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { useCartContext } from "../context/cartContext";
 
 
 
 
 const NavBar = (props) => {
-
-   
     
+   const {cant} = props
+   const {iconCart} = useCartContext()
+   
     return (
     <>
             <Navbar bg="light" expand="lg">
@@ -24,41 +26,34 @@ const NavBar = (props) => {
             <Navbar.Collapse id="navbarScroll">
                 <Nav className="mr-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
                     <NavDropdown title="Catalogo" id="navbarScrollingDropdown">
-                        <Link exact to="/categoria/Botines">
+                        <Link  to="/categoria/Botines">
                             {props.catalogo[0]}
                         </Link>
                         <br />
-                        <Link exact to="/categoria/Camisetas">
+                        <Link  to="/categoria/Camisetas">
                             {props.catalogo[1]}
                         </Link>
                         <br />
-                        <Link exact to="/categoria/Remeras">
+                        <Link  to="/categoria/Remeras">
                             {props.catalogo[2]}
                         </Link>
                         <br />
-                        <Link exact to="/categoria/Zapatillas">
+                        <Link  to="/categoria/Zapatillas">
                             {props.catalogo[3]}
                         </Link>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+                       <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link href="#" disabled>
                         Link
                     </Nav.Link>
                 </Nav>
-                {/* <Form className="d-flex">
-                <FormControl
-                    type="search"
-                    placeholder="Search"
-                    className="mr-2"
-                    aria-label="Search"
-                />
-                <Button variant="outline-success">Search</Button>
-                </Form> */}
             </Navbar.Collapse>
-            <Link to="/"> 
-                <CartWidget />
-            </Link>
+            <Nav.Link to="/Cart"> 
+                {iconCart()}
+                <CartWidget count={cant}/>
+                
+            </Nav.Link>
             </Navbar>
             
            

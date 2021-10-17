@@ -23,12 +23,3 @@ export const getItem = new Promise ((resolve) => {
         resolve(items)
     }, 2000);
 })
-
-
-const item = { id: 8 , descrption: "Hombre Zapatillas Running" }
-
-export const getItemUno = new Promise ((resolve) =>{
-    setTimeout(() => {
-        resolve(item)
-    }, 2000);
-})
