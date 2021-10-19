@@ -3,6 +3,7 @@ import { getItem } from "../Utils/Mock";
 import { useParams } from "react-router";
 
 import ItemDetail from "./ItemDetail";
+import { getFirestore } from "../services/getFirebase";
 
 const ItemDetailContainer = () => {
 
@@ -13,22 +14,34 @@ const ItemDetailContainer = () => {
 
 
     useEffect(() =>{
-
         if (id) {
-            getItem
-            .then(respuesta =>{
-                setItem(respuesta.find( prod => prod.id == id))
-            })
-            .catch(error => console.log(error))
-            .finally(()=>setLoading(false))
-            
+            const dbQuery = getFirestore()
+
+            dbQuery.collection('items').doc(id).get()
+            .then(resp => 
+                // console.log({id: resp.id, ...resp.data()})
+                setItem({id: resp.id, ...resp.data()})
+            )
+            .catch(
+                error => console.log(error)
+            )
+            .finally(
+                ()=> setLoading(false)
+            )
         } else {
-            getItem
-            .then(respuesta =>{
-                setItem(respuesta)
-            })
-            .catch(error => console.log(error))
-            .finally(()=>setLoading(false))
+            const dbQuery = getFirestore()
+
+            dbQuery.collection('items').doc(id).get()
+            .then(resp => 
+                // console.log({id: resp.id, ...resp.data()})
+                setItem({resp})
+            )
+            .catch(
+                error => console.log(error)
+            )
+            .finally(
+                ()=> setLoading(false)
+            )
         }
     }, [id])
 
