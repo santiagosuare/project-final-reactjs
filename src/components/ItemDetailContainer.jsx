@@ -1,5 +1,5 @@
 import { useState , useEffect } from "react";
-import { getItem } from "../Utils/Mock";
+// import { getItem } from "../Utils/Mock";
 import { useParams } from "react-router";
 
 import ItemDetail from "./ItemDetail";

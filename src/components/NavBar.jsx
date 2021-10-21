@@ -49,11 +49,10 @@ const NavBar = (props) => {
                     </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
-            <Nav.Link to="/Cart"> 
+            <Link to="/Cart"> 
                 {iconCart()}
                 <CartWidget count={cant}/>
-                
-            </Nav.Link>
+            </Link>
             </Navbar>
             
            

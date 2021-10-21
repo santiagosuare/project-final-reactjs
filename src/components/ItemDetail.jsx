@@ -32,6 +32,8 @@ const ItemDetail = ({item}) => {
                 <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
                     <Card.Title>$ {item.price}</Card.Title>
+                    <br />
+                    <Card.Title>STOCK: {item.stock}</Card.Title>
                     <div className= "d-flex justify-content-center">
                         {inputType ? 
                             <ItemCount stock={12} initial={1} onAdd={onAdd}/>
