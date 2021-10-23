@@ -8,7 +8,6 @@ import { getFirestore } from "../services/getFirebase";
 const ItemDetailContainer = () => {
 
     const {id} = useParams()
-    const [loading, setLoading] = useState(true)
 
     const [item, setItem] = useState([])
 
@@ -25,9 +24,7 @@ const ItemDetailContainer = () => {
             .catch(
                 error => console.log(error)
             )
-            .finally(
-                ()=> setLoading(false)
-            )
+            
         } else {
             const dbQuery = getFirestore()
 
@@ -39,13 +36,9 @@ const ItemDetailContainer = () => {
             .catch(
                 error => console.log(error)
             )
-            .finally(
-                ()=> setLoading(false)
-            )
         }
     }, [id])
 
-    console.log(loading)
     
     return (
         <>

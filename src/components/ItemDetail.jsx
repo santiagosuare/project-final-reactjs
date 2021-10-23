@@ -10,19 +10,16 @@ import { Link } from 'react-router-dom';
 
 const ItemDetail = ({item}) => {
     const [inputType, setInputType] = useState(true)
-    const [cantidadSeleccionada, setCantidadSeleccionada] = useState(0)
 
     const { addItem } = useCartContext()
 
     const onAdd = (cant) => {
     
-        setCantidadSeleccionada(cant)
+       
         setInputType(false)
         addItem({item, cant})
         
     }
-
-    console.log(cantidadSeleccionada)
 
     return (
         <>
