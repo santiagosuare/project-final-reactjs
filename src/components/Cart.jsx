@@ -88,9 +88,6 @@ const Cart = () => {
     
 
 
-    console.log(cartList)
-    console.log(formData.name)
-
     return (
         <>
             { cartList.length === 0 && formData.name === '' ?
