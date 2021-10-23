@@ -11,7 +11,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import { getFirestore } from '../services/getFirebase';
 import firebase from 'firebase';
-import 'firebase/firestore';
+import 'firebase/storage';
   
 
 const Cart = () => {
@@ -85,8 +85,6 @@ const Cart = () => {
         )
 
     }
-    
-
 
     return (
         <>

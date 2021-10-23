@@ -29,14 +29,8 @@ export default function CartContextProvider({children}) {
     
     // REMOVE en Componente Cart
     const removeItem = (item) => {
-        // Remove un item del cart por id
-        // console.log(item.id)
 
-        // console.log(cartList.filter((prod) => prod.item.id !== item.id))
         const deleteItem = cartList.filter((prod) => prod.item.id !== item.id);
-       
-       
-        // console.log(deleteItem)
 
         setCarList([...deleteItem]);
     }
@@ -50,8 +44,9 @@ export default function CartContextProvider({children}) {
         return cartList.reduce((acum, valor) => (acum + (valor.cant * valor.item.price)), 0)
     }
 
+    //REMUEVE TODOS LOS ITEMS
     function clear () {
-        // Remueve todos los items 
+ 
         setCarList([])
     }
     

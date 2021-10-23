@@ -1,7 +1,5 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
-// import { getItem } from "../Utils/Mock"
-
 import ItemList from "./ItemList";
 import Spinner  from "react-bootstrap/Spinner";
 import { getFirestore } from "../services/getFirebase";
