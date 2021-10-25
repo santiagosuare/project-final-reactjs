@@ -143,21 +143,21 @@ const Cart = () => {
                                             <Row className="mb-3">
                                                 <Form.Group as={Col} controlId="formGridName">
                                                     <Form.Label>Nombre</Form.Label>
-                                                    <Form.Control type="text" placeholder="Ingrese el Nombre" name="name" value={formData.name} />
+                                                    <Form.Control type="text" placeholder="Ingrese el Nombre" name="name" value={formData.name} onChange={handleOnChange}/>
                                                 </Form.Group>
 
                                                 <Form.Group as={Col} controlId="formGridPhone">
                                                     <Form.Label>Telefono</Form.Label>
-                                                    <Form.Control type="phone" placeholder="Numero de Telefono" name="tel" value={formData.tel} />
+                                                    <Form.Control type="phone" placeholder="Numero de Telefono" name="tel" value={formData.tel} onChange={handleOnChange}/>
                                                 </Form.Group>
                                             </Row>
                                             <Form.Group className="mb-3" controlId="formGroupEmail">
                                                 <Form.Label>Email</Form.Label>
-                                                <Form.Control type="email" placeholder="Ingrese Email" name="email" value={formData.email} />
+                                                <Form.Control type="email" placeholder="Ingrese Email" name="email" value={formData.email} onChange={handleOnChange}/>
                                             </Form.Group>
                                             <Form.Group className="mb-3" controlId="formGroupEmail2">
                                                 <Form.Label>Confirmacion de Email</Form.Label>
-                                                <Form.Control type="email" placeholder="Confirmacion de Email" name="email2" value={formData.email2} />
+                                                <Form.Control type="email" placeholder="Confirmacion de Email" name="email2" value={formData.email2} onChange={handleOnChange}/>
                                             </Form.Group>
                                     
                                         <Button as="input" type="reset" value="Terminar Compra"  onClick={generarOrden}/>
