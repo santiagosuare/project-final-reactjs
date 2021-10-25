@@ -58,7 +58,7 @@ const Cart = () => {
         
         const dbData = getFirestore();
         dbData.collection('orders').add(order)
-        .then(resp => console.log(resp.id))
+        .then(resp => resp.id)
         .catch(error => console.log(error))
         .finally(()=> clear())
 
@@ -75,10 +75,6 @@ const Cart = () => {
                 batch.update(docSnapshot.ref, {
                     stock: docSnapshot.data().stock - cartList.find(item => item.item.id === docSnapshot.id).cant
                 })
-            })
-
-            batch.commit().then(resp =>{
-                console.log('resultado batch:', resp)
             })
         }
 
