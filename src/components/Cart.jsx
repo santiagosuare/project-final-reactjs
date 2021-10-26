@@ -16,6 +16,7 @@ import 'firebase/storage';
 
 const Cart = () => {
 
+    const [idOrder, setIdOrder] = useState('');
     const [show, setShow] = useState(true);
     const [ formData, setFormData ] = useState({
         name: '',
@@ -58,9 +59,11 @@ const Cart = () => {
         
         const dbData = getFirestore();
         dbData.collection('orders').add(order)
-        .then(resp => resp.id)
+        .then(resp => setIdOrder(resp.id))
         .catch(error => console.log(error))
         .finally(()=> clear())
+
+         
 
         //ACTUALIZO STOCK
         const itemsUpdate = dbData.collection('items').where(
@@ -76,10 +79,11 @@ const Cart = () => {
                     stock: docSnapshot.data().stock - cartList.find(item => item.item.id === docSnapshot.id).cant
                 })
             })
-        }
 
-        )
-
+            batch.commit().then(resp =>{
+                console.log('resultado batch:', resp)
+            })
+        })
     }
 
     return (
@@ -166,6 +170,8 @@ const Cart = () => {
                                 <p>
                                 La compra fue realizada exitosamente.
                                 <br />
+                                <br />
+                                Su ID de Orden de compra es: <b>{idOrder}</b>.<br />
                                 <br />
                                 A nombre:<b> {formData.name} </b>.<br />
                                 Nos comunicaremos al telefono ingresado: <b>{formData.tel}</b>.<br />
