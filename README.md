@@ -4,7 +4,7 @@
 
 Link Live Demo:
 
-<a href="https://cocky-newton-ccb4fc.netlify.app"> <img src="https://cdn-icons.flaticon.com/png/512/4000/premium/4000742.png?token=exp=1635203407~hmac=1ea82bf66657695dba016632389ad615" width="75"> </a>
+<a href="https://cocky-newton-ccb4fc.netlify.app"> <img src="https://cdn-icons.flaticon.com/png/512/5113/premium/5113235.png?token=exp=1635966396~hmac=424d7045901767a281a060079302e50e" width="75"> </a>
 
 ## Proyecto Final React.js
 
